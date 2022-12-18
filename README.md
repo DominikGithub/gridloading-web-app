@@ -4,8 +4,13 @@
 * Vuejs 3 frontend app  
 
 ## Start  
-`$ docker-compose up --build`  
+Deploy:  
+`$ docker-compose up --build -d`  
+
+### Local development  
+Server: `$ nodemon server.js`  
+App: `$ npm run dev` 
 
 
-### Frontend  
+## Frontend  
 ![frontend grid view](/docs/grid_frontend.PNG "frontend")  
