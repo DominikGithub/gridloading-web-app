@@ -3,9 +3,9 @@ import { watch, computed, onMounted, ref } from 'vue'
 import axios from 'axios';
 
 // const API_SERVER_URL = process.env.VUE_APP_API_URL;
-const API_SERVER_URL = 'http://127.0.0.1:3000';     // docker-compose
+//const API_SERVER_URL = 'http://127.0.0.1:3000';     // docker-compose
 //const API_SERVER_URL = 'backend:3000';            // docker
-// const API_SERVER_URL = 'http://localhost:3000';  // local dev
+const API_SERVER_URL = 'http://localhost:3000';  // local dev
 
 
 // https://picsum.photos/id/1005/150/150
@@ -68,7 +68,9 @@ const imageURL = computed(() => {
   /**
   * Compute image URL from given propery id.
   */
-  return image_first + (800 + imgProps.imageId).toString() + image_second;
+  var startCounter = Math.floor(Math.random() * 100);
+  // 800
+  return image_first + (startCounter + imgProps.imageId).toString() + image_second;
 })
 </script>
 

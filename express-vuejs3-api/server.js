@@ -7,6 +7,7 @@ const PORT = 3000;
 
 var express = require("express");
 const cors = require('cors');
+const LoremIpsum = require("lorem-ipsum").LoremIpsum;
 
 var app = express();
 app.use(cors({
@@ -28,9 +29,12 @@ app.get("/info_list", (req, res, next) => {
   // delay response to mimic heavy compute load for async client
   var sleep = 300.0 + Math.floor(Math.random() * 1000);
   console.log(sleep);
+
+  const lorem_txt = new LoremIpsum().generateWords(5).split(" ");
+  console.log(lorem_txt);
   
   setTimeout(function() {
-    res.json(["Tony","Lisa","Michael","Ginger","Food"]);              // TODO replace static reponse
+    res.json(lorem_txt)
   }, sleep);
  });
 
