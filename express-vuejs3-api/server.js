@@ -1,6 +1,5 @@
-
 /**
- * REST API server for Vuejs 3 async component loading demo.
+ * REST API backend for Vuejs 3 async component loading demo.
  */
 
 const PORT = 3000;
@@ -18,13 +17,34 @@ app.listen(PORT, () => {
   console.log("Server running on port "+PORT);
 });
 
-app.get("/info_list", (req, res, next) => {
+app.post("/grid", (req, res, next) => {
+  /**
+   * Return a random number of entities to initialize.
+   */
+  console.log(req.url);
+  //console.log(req.params);
+
+  // delay response to mimic heavy compute load for async client
+  var sleep = 100.0 + Math.floor(Math.random() * 1000);
+  console.log(sleep);
+  
+  const low = 10;
+  const high = 50;
+  const num_items = Math.floor(Math.random() * (high - low + 1) + low);
+
+  setTimeout(function() {
+    res.json({'num_items': num_items});
+  }, sleep);
+});
+
+app.get("/grid/item/info_list", (req, res, next) => {
   /**
    * Return a list of names.
    */
   console.log(req.url);
   console.log(req.query);
-  //console.log(req.params);
+  const entity_id = req.query.item_id;
+  console.log(entity_id);
 
   // delay response to mimic heavy compute load for async client
   var sleep = 300.0 + Math.floor(Math.random() * 1000);
@@ -36,15 +56,15 @@ app.get("/info_list", (req, res, next) => {
   setTimeout(function() {
     res.json(lorem_txt)
   }, sleep);
- });
+});
 
 
- app.get("/status", (req, res, next) => {
+ app.get("/grid/item/status", (req, res, next) => {
   /**
    * Return the status for the entity given as parameter id.
    */
   console.log(req.url);
-  const entity_id = req.query.device_id;
+  const entity_id = req.query.item_id;
   console.log(entity_id);
 
   //const rnd_status = Math.ceil(Math.random()*10);
@@ -59,4 +79,4 @@ app.get("/info_list", (req, res, next) => {
   setTimeout(function() {
     res.json({'severity': rnd_status});
   }, sleep);
- });
+});

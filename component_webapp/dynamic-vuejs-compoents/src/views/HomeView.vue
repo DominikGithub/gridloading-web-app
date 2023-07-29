@@ -1,6 +1,6 @@
 <script setup>
 //import TheWelcome from "../components/TheWelcome.vue";
-import ParentCell from "../components/ParentCell.vue";
+//import ParentCell from "../components/ParentCell.vue";
 
 </script>
 

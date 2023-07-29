@@ -1,7 +1,7 @@
 # Async loading item web app  
 
-* Nodejs API server  
-* Vuejs 3 frontend app  
+* Nodejs API backend 
+* Vuejs 3 frontend  
 
 ## Start  
 Deploy:  
@@ -11,6 +11,11 @@ Deploy:
 Server: `$ nodemon server.js`  
 App: `$ npm run dev` 
 
+## Backend API endpoints 
 
-## Frontend  
-![frontend grid view](/docs/grid_frontend.PNG "frontend")  
+* `/grid`
+* `/grid/item/info_list?item_id`
+* `/grid/item/status?item_id`
+
+## Web app  
+![frontend grid view](/docs/grid_screenshot.PNG "frontend")  
