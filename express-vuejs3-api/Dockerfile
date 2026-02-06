@@ -2,10 +2,11 @@ FROM node:lts-alpine
 
 WORKDIR /app
 
-COPY server.js .
-
 COPY package*.json ./
-RUN npm i
+
+RUN npm ci
+
+COPY . .
 
 EXPOSE 3000
 CMD [ "node", "server.js" ]

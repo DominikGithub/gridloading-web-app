@@ -5,7 +5,8 @@ RUN npm install -g http-server
 WORKDIR /app
 
 COPY dynamic-vuejs-compoents/package*.json ./
-RUN npm i
+
+RUN npm ci
 
 COPY dynamic-vuejs-compoents/ .
 
